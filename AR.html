@@ -11,7 +11,7 @@
   embedded
   arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;" >
 <!-- we use cors proxy to avoid cross-origin problems -->
-  <a-marker-camera preset="hiro" >
+  <a-marker-camera id="marker" type='pattern'>
     <a-entity
       id="model"
       scale="5 5 5"
