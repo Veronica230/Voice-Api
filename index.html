@@ -45,9 +45,8 @@
                         </h3>
                         <div class="input-group">
                            <div class="custom-file">
-                              <input placeholder="Selecciona un marcador"type="file" class="custom-file-input" id="fileTarget"
-                                 aria-describedby="inputGroupFileAddon01" onchange="getTargetPath()" >
-                              <label class="custom-file-label" for="inputGroupFile01" style="opacity: 0.8;">Por favor, selecciona un marcador. (solo QR)</label>
+                              <input placeholder="Selecciona un marcador desde una URL" type="url" id="fileTarget"
+                              class="form-control input-lg"onchange="getTargetPath(event)" >
                            </div>
                         </div>
                      </div>
@@ -59,9 +58,7 @@
                     </h3>
                     <div class="input-group">
                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="fileModel"
-                           aria-describedby="inputGroupFileAddon01" onchange="getModelPath()">
-                        <label class="custom-file-label" for="inputGroupFile01" style="opacity: 0.8;">Por favor, selecciona un modelo. (solo de tipo nft)</label>
+                        <input type="url" placeholder="Selecciona un modelo desde una URL" id="fileModel" class="form-control input-lg" onchange="getModelPath(event)">
                      </div>
                   </div>
                   </div>

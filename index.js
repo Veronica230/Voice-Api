@@ -1,19 +1,25 @@
-const getTargetPath = () => {
-  const targetFile = document.getElementById("fileTarget").files[0];
+const getTargetPath = (event) => {
+/*   const targetFile = document.getElementById("fileTarget").files[0];
   const reader = new FileReader();
     reader.readAsDataURL(targetFile);
     reader.onloadend = () => {
       sessionStorage.setItem("targetPath", reader.result);
   }
+   */
+  const value = event.target.value;
+  sessionStorage.setItem("targetPath", value);
 };
 
-const getModelPath = () => {
-  const modelFile = document.getElementById("fileModel").files[0];
+const getModelPath = (event) => {
+/*   const modelFile = document.getElementById("fileModel").files[0];
   const reader = new FileReader();
   reader.readAsDataURL(modelFile);
   reader.onloadend = () => {
     sessionStorage.setItem("modelPath", reader.result);
-}
+} */
+
+const value = event.target.value;
+sessionStorage.setItem("modelPath", value);
 };
 
 const getStatus = () => {

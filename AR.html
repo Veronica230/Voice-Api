@@ -11,17 +11,10 @@
   embedded
   arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;" >
 <!-- we use cors proxy to avoid cross-origin problems -->
-  <a-marker-camera id="marker" preset='custom' type='pattern'>
-    <a-nft
-      id="model"
-      type="nft"
-      smooth="true"
-      smoothCount="10"
-      smoothTolerance=".01"
-      smoothThreshold="5"
-    >
+<a-marker id="marker" preset="custom" type='pattern'></a-marker>
   </a-marker>
 <a-entity camera></a-entity>
 </a-scene>
   </body>
 </html>
+
