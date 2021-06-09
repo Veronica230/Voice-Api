@@ -1,73 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-   <style>
-      body {font-family: Arial, Helvetica, sans-serif;}
-      /* The Modal (background) */
-      .modal {
-      display: none; /* Hidden by default */
-      position: relative; /* Stay in place */
-      text-align : center;
-      z-index: 1; /* Sit on top */
-      padding-top: 100px; /* Location of the box */
-      left: 0;
-      top: 0;
-      width: 20%; /* Full width */
-      height: 20%; /* Full height */
-      overflow: auto; /* Enable scroll if needed */
-      background-color: rgb(0,0,0); /* Fallback color */
-      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-      }
-      /* Modal Content */
-      .modal-content {
-      position: relative;
-      background-color: #fefefe;
-      text-align : center;
-      margin: auto;
-      padding: 0;
-      border: 1px solid #888;
-      width: 20%;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-      -webkit-animation-name: animatetop;
-      -webkit-animation-duration: 0.4s;
-      animation-name: animatetop;
-      animation-duration: 0.4s
-      }
-      /* Add Animation */
-      @-webkit-keyframes animatetop {
-      from {top:-300px; opacity:0} 
-      to {top:0; opacity:1}
-      }
-      @keyframes animatetop {
-      from {top:-300px; opacity:0}
-      to {top:0; opacity:1}
-      }
-      /* The Close Button */
-      .close {
-      color: white;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      }
-      .close:hover,
-      .close:focus {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-      }
-      .modal-header {
-      padding: 2px 16px;
-      text-align : center;
-      position: relative; /* Stay in place */
-      background-color: #17202A;
-      color: white;
-      }
-      .modal-body {padding: 2px 16px;}
-      .modal-footer {
-      padding: 2px 16px;
-      background-color: #17202A;
-      color: #E26376;
-      }
-   </style>
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -90,6 +22,7 @@
       <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
       <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
       <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script defer src="index.js"></script>
    </head>
    <body style="background-image: url(background.png);">
@@ -112,9 +45,9 @@
                         </h3>
                         <div class="input-group">
                            <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="fileTarget"
+                              <input placeholder="Selecciona un marcador"type="file" class="custom-file-input" id="fileTarget"
                                  aria-describedby="inputGroupFileAddon01" onchange="getTargetPath()" >
-                              <label class="custom-file-label" for="inputGroupFile01" style="opacity: 0.8;">Por favor, selecciona un target. </label>
+                              <label class="custom-file-label" for="inputGroupFile01" style="opacity: 0.8;">Por favor, selecciona un marcador. (solo QR)</label>
                            </div>
                         </div>
                      </div>
@@ -128,7 +61,7 @@
                      <div class="custom-file">
                         <input type="file" class="custom-file-input" id="fileModel"
                            aria-describedby="inputGroupFileAddon01" onchange="getModelPath()">
-                        <label class="custom-file-label" for="inputGroupFile01" style="opacity: 0.8;">Por favor, selecciona un modelo. </label>
+                        <label class="custom-file-label" for="inputGroupFile01" style="opacity: 0.8;">Por favor, selecciona un modelo. (solo de tipo nft)</label>
                      </div>
                   </div>
                   </div>
@@ -136,16 +69,19 @@
                      <!-- Comandoz de voz -->
                     <div class="input-group">
                      <div class="custom-file">
-                        <button class="btn btn-outline-dark" id="btnStatus"  style="background-color: #E26376;" onclick="getStatus()">
-                           Resetear contenido
+                        <button class="btn btn-outline-dark" id="btnStatus"  style="background-color: #d3d3d3;" onclick="getStatus()">
+                           Resetear Contenido
                         </button>
-
+                        <br> <br>
+                        <button class="btn btn-outline-dark" id="btnSetContent"  style="background-color: #E26376;" onclick="reloadVideoZone()">
+                           Ver Resultado
+                        </button>
                      </div>
                   </div>
                   </div>
                </div>
                <!-- Animaciones. -->
-               <div class="jumbotron col-md-4 offset-md-1" style="background-color: #17202A ; color: #E26376;">
+               <div id="video-zone" class="jumbotron col-md-4 offset-md-1" style="background-color: #17202A ; color: #E26376;">
                   <h3 id="voz">
                      Zona de Video
                     </h3>

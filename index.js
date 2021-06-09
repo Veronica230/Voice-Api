@@ -17,10 +17,18 @@ const getModelPath = () => {
 };
 
 const getStatus = () => {
-  let targetPath = sessionStorage.getItem("targetPath");
-  let modelPath = sessionStorage.getItem("modelPath");
   sessionStorage.removeItem("targetPath")
   sessionStorage.removeItem("modelPath")
-  console.log('que valor trae x--->', targetPath);
-  console.log('que valor trae y--->', modelPath);
+  if (window.confirm("¿Deseas hacer reset de los datos?")) {
+    sessionStorage.removeItem("targetPath");
+    sessionStorage.removeItem("modelPath");
+  }
+}
+
+const reloadVideoZone = () => {
+  if (window.confirm("¿Deseas enviar los datos?")) {
+    document.getElementById("video-zone").innerHTML.reload
+    console.log('que trae ---->', sessionStorage.getItem("targetPath"));
+    console.log('que trae ---->', sessionStorage.getItem("modelPath"));
+  }
 }
