@@ -33,6 +33,7 @@ const getStatus = () => {
 
 const reloadVideoZone = () => {
   if (window.confirm("¿Deseas enviar los datos?")) {
-    document.getElementById("video-zone").innerHTML.reload
+    //document.getElementById("video-zone").innerHTML.reload
+    location.reload();
   }
 }
