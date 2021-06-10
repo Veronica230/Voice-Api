@@ -25,7 +25,7 @@ sessionStorage.setItem("modelPath", value);
 const getStatus = () => {
   sessionStorage.removeItem("targetPath")
   sessionStorage.removeItem("modelPath")
-  if (window.confirm("¿Deseas hacer reset de los datos?")) {
+  if (window.confirm("¿Deseas hacer resetear de los datos?")) {
     sessionStorage.removeItem("targetPath");
     sessionStorage.removeItem("modelPath");
   }
@@ -34,7 +34,5 @@ const getStatus = () => {
 const reloadVideoZone = () => {
   if (window.confirm("¿Deseas enviar los datos?")) {
     document.getElementById("video-zone").innerHTML.reload
-    console.log('que trae ---->', sessionStorage.getItem("targetPath"));
-    console.log('que trae ---->', sessionStorage.getItem("modelPath"));
   }
 }
